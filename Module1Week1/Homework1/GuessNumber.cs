@@ -14,7 +14,7 @@ namespace Homework1
             Random rand = new Random();
             int randomNumber = rand.Next(0, 100);
             //    Console.WriteLine($"The number you have to guess is: {randomNumber}");
-
+            int attempts = 0;
 
             Console.WriteLine("Enter a number between 0 and 100");
             string number = Console.ReadLine();
@@ -23,22 +23,22 @@ namespace Homework1
             while (numberToGuess != randomNumber)
             {
 
-
                 if (numberToGuess > randomNumber)
                 {
-                    Console.WriteLine("Your number is larger than the target number. Try again");
+                    Console.WriteLine("Your number is larger than the target number. Try again\n");
                     goto tryAgain;
-
                 }
 
                 if (numberToGuess < randomNumber)
                 {
-                    Console.WriteLine("Your number is smaller than the target number. Try again");
+                    Console.WriteLine("Your number is smaller than the target number. Try again\n");
                     goto tryAgain;
                 }
 
                 tryAgain:
                 {
+                    attempts++;
+                    Console.WriteLine($"You have {attempts} attempts.");
                     Console.WriteLine("Enter another number: ");
                     number = Console.ReadLine();
                     numberToGuess = int.Parse(number);
@@ -47,7 +47,7 @@ namespace Homework1
 
             if (numberToGuess == randomNumber)
             {
-                Console.WriteLine("YOU WON!!!");
+                Console.WriteLine("YOU WON!!!!!");
             }
 
         }
